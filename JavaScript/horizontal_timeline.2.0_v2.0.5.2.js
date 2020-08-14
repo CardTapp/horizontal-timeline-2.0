@@ -767,28 +767,6 @@ Docs at http://horizontal-timeline.ycodetech.co.uk
 					if($this.is('.scroll-right')) this._updateSlide(timelineComponents, timelineTotalWidth, 'right');
 					// If scroll-left button clicked, scrolls timeline left
 					if($this.is('.scroll-left')) this._updateSlide(timelineComponents, timelineTotalWidth, 'left');
-				}, this))
-				//** Event date function **//
-				// Detect click on a single event date = show new event content
-				.on('click.'+this._name, '.events a', $.proxy(function(event) {
-					event.preventDefault();
-					var $this = $(event.target);
-
-					this._timelineComponents(timelineComponents);
-					// Remove selected class from all dates.
-					this.$element.find('.events').find('a').removeClass('selected');
-					// Add class to the event date clicked.
-					$this.addClass('selected');
-					// Update all other previous event dates for styling
-					this._updateOlderEvents($this);
-					// Set the timeline width.
-					timelineTotalWidth = this._setTimelineWidth(timelineComponents);
-					// Update the timeline width and filling line.
-					this._updateFilling($this, timelineComponents['fillingLine'], timelineTotalWidth);
-					// Change the event content to match the selected event.
-					this._updateVisibleContent($this, timelineComponents['eventsContent']);
-					// Translate (scroll) the timeline left or right according to the position of the targeted event date
-					this._updateTimelinePosition($this, timelineComponents, timelineTotalWidth);
 				}, this));
 
 			//** Autoplay **//
