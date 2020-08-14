@@ -1855,6 +1855,8 @@ Docs at http://horizontal-timeline.ycodetech.co.uk
 			else if (checkMQ == 'tablet') dateIntervals = tablet;
 			// If mobile is detected, set dateIntervals to mobile
 			else if (checkMQ == 'mobile') dateIntervals = mobile;
+			// Default (for testing)
+			else dateIntervals = desktop;
 			
 			// If dateIntervals options are set to below the minimum value, then change it.
 			if (dateIntervals < minimumInterval) dateIntervals = minimumInterval;
