@@ -1,0 +1,18 @@
+{
+  "name": "horizontal-timeline-2.0",
+  "version": "1.0.0",
+  "description": "Horizontal Timeline 2.0, is a fully customisable jQuery adaptation of a script originally created by [CodyHouse](http://codyhouse.co/gem/horizontal-timeline/), to create a dynamic timeline on the horizontal axis.",
+  "main": "Javascript/horizontal_timeline.2.0_v2.0.5.2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CardTapp/horizontal-timeline-2.0.git"
+  },
+  "author": "Sascha Mayr",
+  "bugs": {
+    "url": "https://github.com/CardTapp/horizontal-timeline-2.0/issues"
+  },
+  "homepage": "https://github.com/CardTapp/horizontal-timeline-2.0#readme"
+}
