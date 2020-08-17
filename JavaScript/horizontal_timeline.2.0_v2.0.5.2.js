@@ -1167,7 +1167,6 @@ Docs at http://horizontal-timeline.ycodetech.co.uk
 					$pausePlay.html($playButton);
 					// Call the pause function to pause autoplay
 					this._autoplay.pause(this);
-					console.log('Autoplay is '+state+'.');
 				}
 				// Else if the event type is click and pausebtnClicked is false (so the play button was clicked)...
 				else if (event.type == "click" && !pausebtnClicked) {
@@ -1179,7 +1178,6 @@ Docs at http://horizontal-timeline.ycodetech.co.uk
 					$pausePlay.html($pauseButton);
 					// Call the resume function to resume the autoplay cycle.
 					this._autoplay.resume(this);
-					console.log('Autoplay is '+state+'.');
 				}
 				// If the event type is mouseenter (so it's paused) and the pause play button wrapper doesn't have the clicked class (paused via the pause button)...
 				if(event.type == "mouseenter" && !$pausePlay.hasClass('clicked')) {
@@ -1189,7 +1187,6 @@ Docs at http://horizontal-timeline.ycodetech.co.uk
 					$pausePlay.html($playButton);
 					// Call the pause function to pause autoplay
 					this._autoplay.pause(this);
-					console.log('Autoplay is '+state+'.');
 				}
 				// Else if the event type is mouseleave (so it's playing) and the pause play button wrapper doesn't have the clicked class (paused via the pause button)...
 				// To stop autoplay resuming the cycle on mouseleave if it's already paused via the pause button.
@@ -1200,7 +1197,6 @@ Docs at http://horizontal-timeline.ycodetech.co.uk
 					$pausePlay.html($pauseButton);
 					// Call the resume function to resume the autoplay cycle.
 					this._autoplay.resume(this);
-					console.log('Autoplay is '+state+'.');
 				}
 			} // End changeButtons function
 			// Refresh function
@@ -1273,7 +1269,6 @@ Docs at http://horizontal-timeline.ycodetech.co.uk
 				.find('a.selected'), timelineComponents['fillingLine'], timelineTotalWidth);
 
 			if(this.settings.autoplay == true) this._autoplay.refresh(this);
-			console.log('refreshed #'+this.element.id);
 		},
 
 		/* Destroy public method
@@ -1304,8 +1299,6 @@ Docs at http://horizontal-timeline.ycodetech.co.uk
 			}
 
 			$this.removeData('plugin_' + pluginName);
-
-			console.log('destroyed #'+this.element.id);
 		},
 
 		/* AddEvent public method
@@ -1353,7 +1346,6 @@ Docs at http://horizontal-timeline.ycodetech.co.uk
 					newEventContent: html
 				});
 			}
-			else return console.warn('The date '+ newDate +' is already in Timeline.');
 		},
 
 		/* RemoveEvent public method
@@ -1430,9 +1422,6 @@ Docs at http://horizontal-timeline.ycodetech.co.uk
 				});
 			}
 			// If the specified event is the only event, do nothing, since there should always be at least 1 event.
-			else {
-				console.warn('Timeline must always have at least 1 event after initialisation, therefore it can\'t be removed. Please use the Destroy method instead.');
-			}
 		}, // End removeEvent() function
 
 		/* goTo public method
@@ -1495,8 +1484,6 @@ Docs at http://horizontal-timeline.ycodetech.co.uk
 					}
 					else goto(instanceRef);
 				}
-				// The date is not in the timeline, so we can not go to it.
-				else return console.warn('The date '+ date +' is not in the Timeline, so we can not go to it.');
 
 				function goto(instanceRef) {
 					// Check if the targeted event hasn't already been selected, if not continue the code.
@@ -1957,9 +1944,6 @@ Docs at http://horizontal-timeline.ycodetech.co.uk
 					// File isn't loaded yet...
 					// If adding js...
 					if(js) {
-						console.groupCollapsed(name + ' on ' + this.$element.attr('id') + " timeline");
-						console.log('The plugin isn\'t loaded.');
-
 						// Load the plugin dynamically via Ajax.
 						$.getScript(url)
 							.done(function(script, textStatus) {
@@ -1967,23 +1951,14 @@ Docs at http://horizontal-timeline.ycodetech.co.uk
 								// Check if callback is a function, if it is then set a variable as the callback to be called.
 								if (typeof callback === "function") callback(this);
 							})
-							.fail(function(jqxhr, settings, exception) {
-								console.error("Failed to get " + url + "\n" + jqxhr + "\n" + this.settings + "\n" + exception);
-							}); // End $.getScript function
-
-						console.log('It was loaded dynamically.');
 					}
 					// Else if adding CSS...
 					else if (css) {
-						console.groupCollapsed(name);
-						console.log('The plugin isn\'t loaded.');
 
 						// Add a the CSS file in a new <link> after the last <link> in the head.
 						$('<link>').attr({'href':url, 'rel':'stylesheet', 'type':"text/css"}).insertAfter(
 							$('head').find('link').last()
 						);
-
-						console.log('It was loaded dynamically.');
 					}
 					// Push/add the url to the loadedFile array to check against.
 					loadedFile.push(url);
@@ -1997,9 +1972,6 @@ Docs at http://horizontal-timeline.ycodetech.co.uk
 				else if (fileExists.length && loadedFile.indexOf(url) == -1) {
 					// The file is already loaded in the document via a <script> tag...
 					if(js) {
-						console.groupCollapsed(name + ' on ' + this.$element.attr('id') + " timeline");
-						console.log('The plugin has already been loaded in the document via a <script> tag, no need to load it again.');
-
 						// Execute the plugin via the callback option.
 						// Check if callback is a function, if it is then set a variable as the callback to be called.
 						if (typeof callback === "function") callback(this);
@@ -2010,19 +1982,11 @@ Docs at http://horizontal-timeline.ycodetech.co.uk
 				// Else the plugin has already been loaded...
 				else {
 					if(js) {
-						console.groupCollapsed(name + ' on ' + this.$element.attr('id') + " timeline");
-						console.log('The plugin has already been loaded, no need to load it again.');
-
 						// Execute the plugin via the callback option.
 						// Check if callback is a function, if it is then set a variable as the callback to be called.
 						if (typeof callback === "function") callback(this);
 					}
 				}
-
-				if(js) {
-					console.log('Executed on:', this.$element);
-				}
-				console.groupEnd();
 
 				// Save the loadedFile array as data to the body to be able to reload it next time it's accessed.
 				$('body').data('plugin_'+ this._name +'_loadedFile', loadedFile);
