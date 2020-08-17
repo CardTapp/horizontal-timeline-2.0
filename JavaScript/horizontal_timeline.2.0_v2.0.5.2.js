@@ -77,7 +77,7 @@ Docs at http://horizontal-timeline.ycodetech.co.uk
 
 			// ! Deprecate these individual options in favour of the object options. //
 
-			iconBaseClass: "fas fa-3x", // Space separated class names
+			iconBaseClass: "fa fa-3x", // Space separated class names
 			scrollLeft_iconClass: "fa-chevron-circle-left",
 			scrollRight_iconClass: "fa-chevron-circle-right",
 			prev_iconClass: "fa-arrow-circle-left",
@@ -105,7 +105,7 @@ Docs at http://horizontal-timeline.ycodetech.co.uk
 			// If both single and object options are set in the options, the object will take precedence.
 
 			iconClass: {
-				"base": "fas fa-3x", // Space separated class names
+				"base": "fa fa-3x", // Space separated class names
 				"scrollLeft": "fa-chevron-circle-left",
 				"scrollRight": "fa-chevron-circle-right",
 				"prev": "fa-arrow-circle-left",
