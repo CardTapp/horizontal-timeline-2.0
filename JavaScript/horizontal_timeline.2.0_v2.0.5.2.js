@@ -1433,7 +1433,12 @@ Docs at http://horizontal-timeline.ycodetech.co.uk
 		*/
 
 		// The object that equals itself as the function arguments, sets the defaults for the smoothScroll function. 0+ options can be overridden.
-		goTo: function (date, {smoothScroll = false, speed = 500, offset = 0, easing = "linear"} = {}, instanceRef) {
+		goTo: function (date, options, instanceRef) {
+			options = options || {};
+			var smoothScroll = options.smoothScroll || false;
+			var speed = options.speed || 500;
+			var offset = options.offset || 0;
+			var easing = options.easing || 'linear';
 			var timelineComponents = {};
 			this._timelineComponents(timelineComponents);
 			// If the variable instanceRef is undefined, set it to this instance.
