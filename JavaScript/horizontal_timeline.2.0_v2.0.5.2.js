@@ -486,7 +486,9 @@ Docs at http://horizontal-timeline.ycodetech.co.uk
 				yearDisplay = display == "year",
 				// Find .events for the date display
 				$eventDateDisplay = self.$element.find('.events'),
-				dateLink = '<a href="" data-horizontal-timeline=\'{"date": "'+ dataDate +'"}\'>';
+				linkHref = self._timelineData(eventElement, "linkHref") || "",
+				linkClass = self._timelineData(eventElement, "linkClass") || "",
+				dateLink = '<a href="' + linkHref + '" class="' + linkClass + '" data-horizontal-timeline=\'{"date": "'+ dataDate +'"}\'>';
 
 				// For use with the addEvent public method.
 				// If arrangementDate isn't undefined or null...
@@ -1221,6 +1223,8 @@ Docs at http://horizontal-timeline.ycodetech.co.uk
 
 				if(type == "date") return data.date;
 				else if(type == "customDisplay") return data.customDisplay;
+				else if(type == "linkClass") return data.linkClass;
+				else if(type == "linkHref") return data.linkHref;
 			}
 			// data-date and data-custom-display deprecated as of v2.0.5.alpha.3
 			// and will be removed in a later major version.
