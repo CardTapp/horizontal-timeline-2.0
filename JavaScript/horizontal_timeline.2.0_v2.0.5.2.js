@@ -1642,7 +1642,7 @@ Docs at http://horizontal-timeline.ycodetech.co.uk
 				// Get wrapper width
 				wrapperWidth = timelineComponents['timelineWrapper'].width(),
 				// Get the css left value of the last event date, remove the px unit and add 100 to it.
-				lastEventLeft = Number(timelineComponents['timelineEvents'].last().css('left').replace('px', '')) + 100;
+				lastEventLeft = Number(timelineComponents['timelineEvents'].last().css('left').replace('px', '')) + 140;
 
 			// Set a fail-safe, if lastEventLeft is less than the wrapperWidth then use the wrapperWidth as totalWidth.
 			// Stops the timeline width from being too small.
