@@ -103,12 +103,6 @@ body {
 	text-decoration: none;
 	padding-bottom: 15px;
 	color: #000;
-	/* Fix bug on Safari - text flickering while timeline translates */
-	-webkit-transform: translateZ(0);
-	-moz-transform: translateZ(0);
-	-ms-transform: translateZ(0);
-	-o-transform: translateZ(0);
-	transform: translateZ(0);
 	user-select: none;
 }
 /* Dots for the event dates on the timeline */
